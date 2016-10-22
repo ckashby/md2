@@ -1,9 +1,31 @@
-<md-toolbar color="primary"><md-icon>phone</md-icon>My App</md-toolbar>
-<md-sidenav-layout>
-  <md-sidenav align="end" mode="side" opened>
-    <h1>{{title}}</h1>
-    <h2>{{subtitle}}</h2>
-    <p>Some text here, And an icon: <md-icon>phone</md-icon></p>
-  </md-sidenav>
-</md-sidenav-layout>
+<div>
+<md-toolbar color="primary"><md-icon class="icon-20">pets</md-icon>LeashMe</md-toolbar>
 
+<md-sidenav-layout>
+  <md-sidenav align="end" mode="side" opened #sidenav>
+    <md-tab-group>
+      <md-tab>
+      <template md-tab-label>Details</template>
+      <template md-tab-content>Bowser: 2 years old</template>
+      </md-tab>
+      <md-tab>
+      <template md-tab-label>Feed</template>
+      <template md-tab-content>frisbee catching & rolling over</template>
+      </md-tab>
+    </md-tab-group>
+    
+    <button md-raised-button color="accent" (click)="sidenav.close()">CLOSE</button>
+    <p>Some text here, And an icon: <md-icon>arrow</md-icon></p>
+    
+  </md-sidenav>
+  <md-grid-list cols="3" rowHeight="300px">
+    <md-grid-tile *ngFor="let dog of dogs" [rowspan]="dog.rows" >
+      <img src="{{dog.imgurl}}.jpg" alt="Picture of {{dog.name}}">
+      <md-grid-tile-footer>
+        <h3 md-line>{{dog.name}}</h3>
+        <span md-line>Human: {{dog.human}}</span>
+        <md-icon>info</md-icon>
+      </md-grid-tile-footer>
+    </md-grid-tile>
+  </md-grid-list>
+</md-sidenav-layout>

@@ -21,13 +21,12 @@ p {
 }
 
 md-grid-list {
-  max-width: 1403px;
+  max-width: 800px;
   margin: 16px;
 }
 
 md-sidenav-layout {
   height: 100vh;
-  background-color: green;
 }
 
 md-sidenav {

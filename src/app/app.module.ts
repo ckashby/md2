@@ -5,10 +5,12 @@ import { HttpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
+import { BigHatComponent } from './big-hat/big-hat.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    BigHatComponent
   ],
   imports: [
     BrowserModule,
