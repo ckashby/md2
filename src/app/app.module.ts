@@ -4,13 +4,18 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
 
-import { AppComponent } from './app.component';
+import { AppComponent, SettingsDialog } from './app.component';
 import { BigHatComponent } from './big-hat/big-hat.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BigHatComponent
+    BigHatComponent,
+    SettingsDialog
+  ],
+  entryComponents: [
+    AppComponent,
+    SettingsDialog
   ],
   imports: [
     BrowserModule,

@@ -1,21 +1,36 @@
 <div>
-<md-toolbar color="primary"><md-icon class="icon-20">pets</md-icon>LeashMe</md-toolbar>
+<md-toolbar color="primary">
+  <span><md-icon class="icon-20">pets</md-icon> {{title}}</span>
+
+  <button md-icon-button [md-menu-trigger-for]="menu">
+    <md-icon>more_vert</md-icon></button>
+</md-toolbar>
+
+<md-menu x-position="before" #menu="mdMenu">
+  <button md-menu-item (onclick)="openDialog()">Settings</button>
+  <button md-menu-item>Toggle Theme</button>
+  <button md-menu-item>Help</button>
+</md-menu>
 
 <md-sidenav-layout>
-  <md-sidenav align="end" mode="side" opened #sidenav>
+  <md-sidenav align="end" mode="side" #sidenav>
     <md-tab-group>
       <md-tab>
       <template md-tab-label>Details</template>
-      <template md-tab-content>Bowser: 2 years old</template>
+        <template md-tab-content>
+          <p>Name: {{currentDog.name}}</p>
+          <p>Human: {{currentDog.human}}</p>
+          <p>Age: {{currentDog.age}}</p>
+        </template>
       </md-tab>
       <md-tab>
       <template md-tab-label>Feed</template>
-      <template md-tab-content>frisbee catching & rolling over</template>
+      <template md-tab-content>Frisbee catching & rolling over</template>
       </md-tab>
     </md-tab-group>
     
     <button md-raised-button color="accent" (click)="sidenav.close()">CLOSE</button>
-    <p>Some text here, And an icon: <md-icon>arrow</md-icon></p>
+    <p>Call us<md-icon>info</md-icon></p>
     
   </md-sidenav>
   <md-grid-list cols="3" rowHeight="300px">
@@ -23,8 +38,8 @@
       <img src="{{dog.imgurl}}.jpg" alt="Picture of {{dog.name}}">
       <md-grid-tile-footer>
         <h3 md-line>{{dog.name}}</h3>
-        <span md-line>Human: {{dog.human}}</span>
-        <md-icon>info</md-icon>
+        <span md-line>Human: {{dog.human}} <md-icon>face</md-icon></span>
+        <button md-icon-button (click)="showDog(dog)"><md-icon>info</md-icon></button>
       </md-grid-tile-footer>
     </md-grid-tile>
   </md-grid-list>
